@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Loan - Berry Loans</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: color 0.3s;
+        }
+
+        .back-button:hover {
+            color: #b31217;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .loan-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .loan-option {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .loan-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .loan-option h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .loan-amount {
+            font-size: 2em;
+            color: #b31217;
+            margin: 15px 0;
+        }
+
+        .loan-details {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .loan-details li {
+            margin: 8px 0;
+            color: #666;
+        }
+
+        .apply-button {
+            background: linear-gradient(to right, #b31217, #6f0f96);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .apply-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(179, 18, 23, 0.2);
+        }
+
+        .requirements {
+            margin-top: 40px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .requirements h3 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .requirements ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .requirements li {
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .requirements li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #b31217;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-button">← Back to Home</a>
+        <h1>Apply for a Loan</h1>
+        
+        <div class="loan-options">
+            <div class="loan-option">
+                <h3>Quick Cash</h3>
+                <div class="loan-amount">Up to $500</div>
+                <ul class="loan-details">
+                    <li>7-day repayment period</li>
+                    <li>5% service fee</li>
+                    <li>No collateral needed</li>
+                </ul>
+                <button class="apply-button">Apply Now</button>
+            </div>
+            
+            <div class="loan-option">
+                <h3>Business Boost</h3>
+                <div class="loan-amount">Up to $2000</div>
+                <ul class="loan-details">
+                    <li>30-day repayment period</li>
+                    <li>8% service fee</li>
+                    <li>Business verification required</li>
+                </ul>
+                <button class="apply-button">Apply Now</button>
+            </div>
+            
+            <div class="loan-option">
+                <h3>Premium Loan</h3>
+                <div class="loan-amount">Up to $5000</div>
+                <ul class="loan-details">
+                    <li>90-day repayment period</li>
+                    <li>10% service fee</li>
+                    <li>Credit score check required</li>
+                </ul>
+                <button class="apply-button">Apply Now</button>
+            </div>
+        </div>
+
+        <div class="requirements">
+            <h3>Requirements for Loan Application</h3>
+            <ul>
+                <li>Valid government-issued ID</li>
+                <li>Proof of income</li>
+                <li>Active M-Pesa account</li>
+                <li>Bank statements (3 months)</li>
+                <li>No existing Berry loan</li>
+                <li>Good credit score</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.apply-button').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Please ensure you have uploaded your M-Pesa statement before proceeding with the application.');
+            });
+        });
+    </script>
+</body>
+</html>

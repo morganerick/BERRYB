@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Berry Loans</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header.hero-section {
+            background: linear-gradient(to right, #b31217, #6f0f96);
+            color: #fff;
+            padding: 60px 20px;
+        }
+        
+        .hero-section .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .hero-left {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .hero-left .logo {
+            width: 120px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-left h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .hero-left p {
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        
+        .download-btn img {
+            width: 150px;
+        }
+        
+        .hero-center {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .phone-image {
+            width: 220px;
+            margin: 0 auto;
+        }
+        
+        .hero-right {
+            flex: 1;
+            min-width: 280px;
+            font-size: 0.9rem;
+        }
+        
+        .hero-right ul {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .hero-right li {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero-right li:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero-right li:active {
+            transform: translateY(0);
+        }
+        
+        .hero-right strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #fff;
+            font-size: 1.1em;
+        }
+        
+        .hero-right li a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-right li {
+                padding: 15px;
+                text-align: center;
+            }
+            
+            .hero-right {
+                margin-top: 30px;
+                width: 100%;
+            }
+        }
+        
+        section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            min-height: 250px;
+        }
+        
+        .feature {
+            text-align: center;
+            width: 180px;
+            height: 180px;
+            margin: 10px;
+            background: linear-gradient(135deg, #b31217, #6f0f96);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            cursor: move;
+            position: relative;
+            user-select: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .feature h3 {
+            font-size: 2.5em;
+            margin: 0;
+            margin-bottom: 5px;
+        }
+        
+        .feature p {
+            font-size: 0.9em;
+            margin: 0;
+            padding: 0 20px;
+        }
+        
+        .feature.dragging {
+            opacity: 0.8;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        
+        .subscribe {
+            background-color: #0c1433;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 12px;
+            margin: 60px 0;
+        }
+        
+        .subscribe input {
+            padding: 10px;
+            width: 60%;
+            max-width: 400px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 8px;
+        }
+        
+        .subscribe button {
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .testimonial {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .testimonial img {
+            width: 150px;
+            border-radius: 50%;
+        }
+        
+        .testimonial-text {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            flex: 1;
+        }
+        
+        .contact-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background-color: #f5f5f5;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+        
+        .contact-form textarea {
+            height: 120px;
+            resize: none;
+        }
+        
+        .contact-form button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            background-color: #fff;
+            color: #f44336;
+            border: 2px solid #f44336;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        .contact-form button:hover {
+            background-color: #f44336;
+            color: white;
+        }
+        
+        .lazy {
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+        
+        .lazy.loaded {
+            opacity: 1;
+        }
+        
+        footer {
+            background-color: #f7f7f7;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 60px;
+        }
+        
+        .footer-links {
+            margin-top: 10px;
+        }
+        
+        .footer-links a {
+            margin: 0 10px;
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero-section">
+        <div class="container">
+            <div class="hero-left">
+                <img src="logo.svg" alt="Berry Logo" class="logo" />
+                <h1>Simple, Swift Loans<br>at your Fingertips</h1>
+                <p>Money on your Mpesa account within minutes</p>
+                <a href="pages/download.html" class="download-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
+                </a>
+            </div>
+            <div class="hero-center">
+                <img src="https://i.imgur.com/KFkhqUc.png" alt="Phone UI" class="phone-image" />
+            </div>
+            <div class="hero-right">
+                <ul>
+                    <li onclick="window.location.href='pages/download.html'">
+                        <strong>Download the application</strong>
+                        Search for Berry loan app in Google Play Store and download it on your mobile.
+                    </li>
+                    <li onclick="window.location.href='pages/register.html'">
+                        <strong>Register yourself</strong>
+                        Tell us who you are! To serve you better.
+                    </li>
+                    <li onclick="window.location.href='pages/apply.html'">
+                        <strong>Apply for a loan</strong>
+                        Submit your Mpesa Statement. Choose a loan product that suits your needs.
+                    </li>
+                    <li onclick="window.location.href='pages/receive.html'">
+                        <strong>Receive money</strong>
+                        Loan amount is sent on your Mpesa account within a minute.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <h2>About Berry</h2>
+        <p>Berry is Simple, Swift and Secure. We provide you with credit instantly from wherever and whenever right to your mobile phone, all at a low fee and with an easy repayment schedule.</p>
+        <div class="features">
+            <div class="feature" draggable="true">
+                <h3>120</h3>
+                <p>Seconds to get a loan</p>
+            </div>
+            <div class="feature" draggable="true">
+                <h3>10</h3>
+                <p>Steps to get your loan</p>
+            </div>
+            <div class="feature" draggable="true">
+                <h3>365</h3>
+                <p>Days 24/7 Availability</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="subscribe">
+        <h3>Stay in Touch</h3>
+        <p>Receive updates from the Berry system</p>
+        <form>
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>What Our Users Say</h2>
+        <div class="testimonial">
+            <img data-src="https://via.placeholder.com/150" alt="Happy User" class="lazy" />
+            <div class="testimonial-text">
+                <h3>Someone like you is <span style="color:red">happy</span> with Berry</h3>
+                <p>I would recommend this to anyone who needs money fast — it's simple and fast, and the team was super supportive and transparent.</p>
+                <p><strong>Erick Njoroge</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Contact us</h2>
+        <p>If you have any questions, you can contact us. Our Team will get in-touch!</p>
+        <form class="contact-form">
+            <input type="text" name="fullname" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <p>Can't find your answer? You can always reach our <a href="#" style="color:red">support</a>.</p>
+    </section>
+
+    <footer class="lazy" data-src="#">
+        &copy; 2025 Berry Loans. All rights reserved.
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+            <a href="#">FAQs</a>
+            <a href="#">Facebook</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </footer>
+
+    <script src="src/styles.js"></script>
+</body>
+</html>
